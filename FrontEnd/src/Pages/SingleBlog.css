@@ -1,0 +1,10 @@
+.singleblog {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 3%;
+}
+
+.singleblog h4 {
+  color: rgba(24, 23, 23, 0.178);
+}

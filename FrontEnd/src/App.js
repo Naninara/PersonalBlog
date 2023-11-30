@@ -4,6 +4,8 @@ import Navbar from "./Components/Navbar";
 import UpdateBlog from "./Pages/UpdateBlog";
 import CreateBlog from "./Pages/CreateBlog";
 import HomePage from "./Pages/HomePage";
+import EditBlogs from "./Pages/EditBlogs";
+import SingleBlog from "./Pages/SingleBlog";
 
 const Layout = () => {
   return (
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "/createblog",
         element: <CreateBlog />,
+      },
+      {
+        path: "all",
+        element: <EditBlogs />,
+      },
+      {
+        path: "/singleblog/:id",
+        element: <SingleBlog />,
       },
     ],
   },

@@ -25,7 +25,7 @@ function UpdateBlog() {
 
   function postData() {
     axios
-      .patch("http://localhost:3500/post/65675e901f84922ea2bf676a")
+      .patch(`http://localhost:3500/post/${id}`)
       .then(() => {
         alert("posted to public sucessfully");
       })

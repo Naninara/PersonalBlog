@@ -8,7 +8,6 @@ const createBlogController = async (req, res) => {
   await blog
     .save()
     .then((response) => {
-      console.log(response);
       res.status(201).json(response);
     })
     .catch((err) => res.status(400).json(err));
@@ -50,9 +49,28 @@ const isPostedController = async (req, res) => {
       console.log(err);
     });
 };
+
+const getAllBlogController = async (req, res) => {
+  await blogModel
+    .find({})
+    .then((response) => {
+      res.status(200).json(response);
+    })
+    .catch((err) => console.log(err));
+};
+
+const deleteController = async (req, res) => {
+  const id = req.params.id;
+  await blogModel
+    .findByIdAndDelete({ _id: id })
+    .then((response) => res.sendStatus(200))
+    .catch((err) => console.log(err));
+};
 module.exports = {
   createBlogController,
   getSingleBlogData,
   AutoUpdateController,
   isPostedController,
+  getAllBlogController,
+  deleteController,
 };
