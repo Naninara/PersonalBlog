@@ -4,6 +4,7 @@ import Card from "../Components/Card";
 import axios from "axios";
 
 function HomePage() {
+  //variable to all details of posted blogs
   const [blogdetails, setBlogdetails] = useState([]);
   useEffect(() => {
     axios
@@ -24,6 +25,7 @@ function HomePage() {
         Latest Blogs
       </h1>
       {blogdetails.map((ele) => {
+        //passing data into card component using props
         if (ele.isPosted) return <Card {...ele} key={ele._id} />;
         return [];
       })}

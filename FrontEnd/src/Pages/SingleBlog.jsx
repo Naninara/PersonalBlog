@@ -6,6 +6,8 @@ import Loader from "../Components/Loader";
 function SingleBlog() {
   const { id } = useParams();
   const [data, setData] = useState(null);
+
+  //useEffect to call api at loading
   useEffect(() => {
     axios
       .get(`http://localhost:3500/getblog/${id}`)

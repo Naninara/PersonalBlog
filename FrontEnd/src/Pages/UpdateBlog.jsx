@@ -10,12 +10,16 @@ function UpdateBlog() {
   const { id } = useParams();
   const [blogData, setBlogData] = useState({});
   const [saving, setSaving] = useState("saved....");
+
+  //useEffect to call api at loading
   useEffect(() => {
     axios
       .get(`http://localhost:3500/getblog/${id}`)
       .then((response) => setBlogData(response.data))
       .catch((err) => console.log(err));
   }, [id]);
+
+  //function to handle blog
   function handleChange(e) {
     setBlogData((prevState) => ({
       ...prevState,
@@ -23,6 +27,7 @@ function UpdateBlog() {
     }));
   }
 
+  //function to post blog for viewd by public
   function postData() {
     axios
       .patch(`http://localhost:3500/post/${id}`)
@@ -33,6 +38,8 @@ function UpdateBlog() {
         console.log(err);
       });
   }
+
+  //debouncing function to autosave data
   useEffect(() => {
     setSaving("saving...");
     const getData = setTimeout(() => {

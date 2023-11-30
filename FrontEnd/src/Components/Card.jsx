@@ -2,6 +2,8 @@ import React from "react";
 
 import "./card.css";
 import { Link } from "react-router-dom";
+
+//destructoring props
 const Card = ({ heading, subheading, content, _id }) => {
   return (
     <div className="card">

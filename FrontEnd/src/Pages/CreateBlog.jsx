@@ -6,6 +6,8 @@ import { TextField } from "@mui/material";
 function CreateBlog() {
   const navigate = useNavigate();
   const [blogname, setBlogname] = useState("");
+
+  //function to create a blog
   function createBlogFunction() {
     if (blogname === "") {
       alert("Blog Name must be filled");

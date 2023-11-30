@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const EditBlogs = () => {
+  //variable to store all blog details
   const [blogdetails, setBlogdetails] = useState([]);
+
+  //useEffect to call api at loading
   useEffect(() => {
     axios
       .get("http://localhost:3500/getallblog")
@@ -11,6 +14,7 @@ const EditBlogs = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  //function to delete blog
   function deleteBlogFunction(id) {
     axios
       .delete(`http://localhost:3500/delete/${id}`)
